@@ -15,6 +15,13 @@ jobs:
       - run:
           name: Build phase
           command: sudo yarn build
+      - run:
+          name: Install Firebase CLI
+          command: sudo npm install -g firebase-tools
+      - run:
+          name: Deploy to Firebase
+          command: sudo firebase deploy  --token "$FIREBASE_TOKEN"
+      
 
 orbs:
   slack: circleci/slack@3.4.2
