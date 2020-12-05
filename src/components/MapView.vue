@@ -11,6 +11,10 @@ export default {
             center: { lat: 39.75963977962454, lng: -105.0133786 },
             zoom: 15
         })
+        new window.google.maps.Marker({
+            position: { lat: 39.75963977962454, lng: -105.0133786 },
+            map: this.map
+        })
     }
 }
 </script>
