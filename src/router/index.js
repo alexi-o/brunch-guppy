@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import Home from '../views/Home.vue'
 import MapView from '../components/MapView'
+import Login from '../components/Login'
+import Register from '../components/Register'
 
 // Install BootstrapVue
 Vue.use(BootstrapVue)
@@ -26,6 +28,16 @@ const routes = [
     path: '/map',
     name: 'Map',
     component: MapView
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
   }
 ]
 
