@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import firebase from 'firebase/app'
 require('firebase/auth')
+require('firebase/firestore')
 import store from './store'
 
 Vue.config.productionTip = false
@@ -22,6 +23,18 @@ firebase.initializeApp(configOptions)
 
 firebase.auth().onAuthStateChanged(user => {
   store.dispatch("fetchUser", user)
+})
+
+const restaurantsCollection = firebase.firestore().collection('restaurants')
+
+restaurantsCollection.onSnapshot((restaurantsRef) => {
+  const restaurants = []
+  restaurantsRef.forEach((doc) => {
+    const restaurant = doc.data()
+    restaurant.id = doc.id
+    restaurants.push(restaurant)
+  })
+  store.restaurantsInFeed = restaurants
 })
 
 new Vue({
