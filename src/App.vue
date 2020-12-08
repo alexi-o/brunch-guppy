@@ -4,7 +4,7 @@
       <div v-if="user.loggedIn">
         <router-link to="/">Home</router-link> |
         <router-link to="/about">About</router-link> |
-        <p @click.prevent="signOut">Sign Out</p>
+        <a href="" @click.prevent="signOut">Sign Out</a>
       </div>
       <div v-else>
         <router-link to="/">Home</router-link> |
